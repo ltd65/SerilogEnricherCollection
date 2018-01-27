@@ -42,4 +42,4 @@ formation missing
 
 * WithUtcTimestamp: Adds the timestamp of the logging event in Utc
 * WithThreadName: Adds the name found in Thread.Name 
-* WithMemoryInformation: Add 
+* WithMemoryInformation: Add Memory information including number of GC calls since start.
