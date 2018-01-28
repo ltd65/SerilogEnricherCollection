@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NSubstitute;
+﻿using NSubstitute;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -31,14 +28,10 @@ namespace SerilogEnricherCollectionTests.TestHelper
 
         protected void CreateDefaultLoggerEnvironment()
         {
-
             LogEventSink = Substitute.For<ILogEventSink>();
             LogEventSink.Emit(Arg.Do<LogEvent>(e => Event = e));
 
-            Log = new LoggerConfiguration()
-                    .Enrich.WithUtcTimestamp()
-                    .WriteTo.Sink(LogEventSink)
-                    .CreateLogger();
+            Log = new LoggerConfiguration().Enrich.WithUtcTimestamp().WriteTo.Sink(LogEventSink).CreateLogger();
         }
     }
 }

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NSubstitute;
-using Serilog;
-using Serilog.Core;
-using Serilog.Events;
-using SerilogEnricherCollection.Enricher;
+﻿using Serilog.Events;
 using SerilogEnricherCollectionTests.TestHelper;
 using Xunit;
 
