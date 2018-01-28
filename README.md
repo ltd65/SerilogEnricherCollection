@@ -20,7 +20,7 @@ To activate you can either apply the enricher by adding them to your `LoggerConf
 
 ```csharp
 Log.Logger = new LoggerConfiguration()
-            .Enrich.WithUtcTimeStamp()
+            .Enrich.WithUtcTimestamp()
             .Enrich.WithThreadName()
             .Enrich.WithMemoryInformation()
             // your configuration here
@@ -40,6 +40,6 @@ formation missing
 
 ## Included Enrichers
 
-* WithUtcTimestamp: Adds the timestamp of the logging event in Utc
-* WithThreadName: Adds the name found in Thread.Name 
+* WithUtcTimestamp: Adds the timestamp of the logging event in Utc. Property name added: "UtcTimestamp"
+* WithThreadName: Adds the name found in Thread.Name. Property name added: "ThreadName"
 * WithMemoryInformation: Add Memory information including number of GC calls since start.

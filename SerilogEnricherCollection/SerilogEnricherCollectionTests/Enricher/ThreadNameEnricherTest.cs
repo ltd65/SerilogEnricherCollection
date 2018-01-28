@@ -37,7 +37,7 @@ namespace SerilogEnricherCollectionTests.Enricher
         {
             CreateDefaultLoggerEnvironment();
             string expectedName = SetupThreadName("test string");
-            Log.Information("Has an UtcTimestamp property set in log: {ThreadName}", "abc");
+            Log.Information("Has an ThreadName property set in log: {ThreadName}", "abc");
 
             Assert.NotNull(Event);
             Assert.Equal("abc", ((ScalarValue)Event.Properties["ThreadName"]).Value.ToString());
