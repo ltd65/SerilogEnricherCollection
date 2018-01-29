@@ -31,7 +31,11 @@ namespace SerilogEnricherCollectionTests.TestHelper
             LogEventSink = Substitute.For<ILogEventSink>();
             LogEventSink.Emit(Arg.Do<LogEvent>(e => Event = e));
 
-            Log = new LoggerConfiguration().Enrich.WithUtcTimestamp().Enrich.WithTheadName().WriteTo.Sink(LogEventSink).CreateLogger();
+            Log = new LoggerConfiguration().Enrich.WithUtcTimestamp()
+                                           .Enrich.WithTheadName()
+                                           .Enrich.WithMemoryInformation()
+                                           .WriteTo.Sink(LogEventSink)
+                                           .CreateLogger();
         }
     }
 }
