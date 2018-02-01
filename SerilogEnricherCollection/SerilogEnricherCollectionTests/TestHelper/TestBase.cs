@@ -32,7 +32,7 @@ namespace SerilogEnricherCollectionTests.TestHelper
             LogEventSink.Emit(Arg.Do<LogEvent>(e => Event = e));
 
             Log = new LoggerConfiguration().Enrich.WithUtcTimestamp()
-                                           .Enrich.WithTheadName()
+                                           .Enrich.WithThreadName()
                                            .Enrich.WithMemoryInformation()
                                            .WriteTo.Sink(LogEventSink)
                                            .CreateLogger();
