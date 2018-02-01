@@ -41,7 +41,7 @@ namespace SerilogEnricherCollectionTests.Enricher
             Assert.NotNull(Event);
             for (int i = 0; i < GC.MaxGeneration; i++)
             {
-                Assert.NotEmpty(((ScalarValue)Event.Properties[$"GC#{i}CollectionCount"]).Value.ToString());
+                Assert.NotEmpty(((ScalarValue)Event.Properties[$"GC{i}CollectionCount"]).Value.ToString());
             }
         }
     }

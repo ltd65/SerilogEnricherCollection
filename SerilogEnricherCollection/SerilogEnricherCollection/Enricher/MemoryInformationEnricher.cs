@@ -11,7 +11,7 @@ namespace SerilogEnricherCollection.Enricher
             logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("AllocatedMemory", GC.GetTotalMemory(false)));
             for (int i = 0; i < GC.MaxGeneration; i++)
             {
-                logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty($"GC#{i}CollectionCount", GC.CollectionCount(i)));
+                logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty($"GC{i}CollectionCount", GC.CollectionCount(i)));
             }
         }
     }
