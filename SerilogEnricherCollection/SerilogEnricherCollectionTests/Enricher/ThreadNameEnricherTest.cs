@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using Serilog.Events;
 using SerilogEnricherCollectionTests.TestHelper;
 using Xunit;
@@ -10,7 +7,7 @@ namespace SerilogEnricherCollectionTests.Enricher
 {
     public class ThreadNameEnricherTest : TestBase
     {
-        private string SetupThreadName(string threadName)
+        private static string SetupThreadName(string threadName)
         {
             if (string.IsNullOrWhiteSpace(Thread.CurrentThread.Name))
             {
@@ -25,19 +22,19 @@ namespace SerilogEnricherCollectionTests.Enricher
         {
             CreateDefaultLoggerEnvironment();
             string expectedName = SetupThreadName("test string");
-            Log.Information("Has an ThreadName property");
+            Log.Information("Has a ThreadName property");
 
             Assert.NotNull(Event);
-            Assert.Equal(expectedName,((ScalarValue)Event.Properties["ThreadName"]).Value.ToString());
+            Assert.Equal(expectedName, ((ScalarValue)Event.Properties["ThreadName"]).Value.ToString());
         }
 
         [Fact]
-        public void UtcTimeStampDoesNotOverrideProperty()
+        public void EnricherDoesNotOverrideProperty()
 
         {
             CreateDefaultLoggerEnvironment();
-            string expectedName = SetupThreadName("test string");
-            Log.Information("Has an ThreadName property set in log: {ThreadName}", "abc");
+            SetupThreadName("test string");
+            Log.Information("Has a ThreadName property set in log: {ThreadName}", "abc");
 
             Assert.NotNull(Event);
             Assert.Equal("abc", ((ScalarValue)Event.Properties["ThreadName"]).Value.ToString());

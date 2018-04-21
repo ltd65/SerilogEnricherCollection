@@ -4,7 +4,7 @@ using Serilog.Events;
 
 namespace SerilogEnricherCollection.Enricher
 {
-    class MemoryInformationEnricher : ILogEventEnricher
+    public class MemoryInformationEnricher : ILogEventEnricher
     {
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
