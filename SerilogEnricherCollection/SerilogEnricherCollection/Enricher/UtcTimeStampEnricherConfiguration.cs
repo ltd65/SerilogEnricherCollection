@@ -9,7 +9,9 @@ namespace SerilogEnricherCollection.Enricher
         public static LoggerConfiguration WithUtcTimestamp(this LoggerEnrichmentConfiguration enrichmentConfiguration)
         {
             if (enrichmentConfiguration == null)
+            {
                 throw new ArgumentNullException(nameof(enrichmentConfiguration));
+            }
             return enrichmentConfiguration.With<UtcTimestampEnricher>();
         }
     }

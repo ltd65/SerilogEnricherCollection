@@ -5,9 +5,7 @@ namespace SerilogEnricherCollection.Enricher
 {
     public class UtcTimestampEnricher : ILogEventEnricher
     {
-        public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
-        {
-            logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("UtcTimestamp", logEvent.Timestamp.UtcDateTime));
-        }
+        public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory) => 
+                logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("UtcTimestamp", logEvent.Timestamp.UtcDateTime));
     }
 }
